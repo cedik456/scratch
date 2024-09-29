@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -42,6 +42,10 @@
     
             <input type="submit" value="Submit">
         </form>
+
+        <?php
+        check_signup_errors();// last left 
+        ?>
 
     </div>
     
