@@ -9,4 +9,17 @@
 form {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
+  min-height: 50px;
+}
+
+.form-error {
+  padding: 0;
+  margin: 0;
+  color: red;
+  font-size: 0.8rem;
+}
+
+button {
+  margin-top: 1rem;
 }

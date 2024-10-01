@@ -10,7 +10,7 @@ CREATE TABLE `Userlogins` (
 
 CREATE TABLE `Users` (
   `user_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `faculty_id` INT(11) DEFAULT NULL,
+  `faculty_id` VARCHAR(255) DEFAULT NULL,
   `fname` VARCHAR(50) NOT NULL,
   `midname` VARCHAR(50) DEFAULT NULL,
   `lname` VARCHAR(50) NOT NULL,

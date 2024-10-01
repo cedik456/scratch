@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-function isInputEmpty(int $faculty_id, string $fname, string $lname, string $dob, int $age, string $username, string $email, string $password) {
+function isInputEmpty(string $faculty_id, string $fname, string $lname, $dob, $age, string $username, string $email, string $password) {
 
     if (empty($faculty_id) || empty($fname) || empty($lname) || empty($dob) || empty($age) || empty($username) || empty($email) || empty($password)) {
        return true;
-    } else {
+    } else {        
         return false;
     }
 } 
@@ -34,4 +34,14 @@ function isEmailRegistered(object $pdo, string $email) {
         return true;
     } else 
         return false;
+}
+
+function createUser(object $pdo, string $faculty_id, string $fname, string $midname, string $lname,string $dob,int $age) {
+
+    setUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);
+}
+
+function createUserLogin(object $pdo, string $username, string $email, string $password) {
+
+    setUserLogin($pdo, $username, $email, $password);
 }

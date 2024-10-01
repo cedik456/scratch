@@ -1,3 +1,8 @@
+<?php
+require_once "./includes/config_session.inc.php";
+require_once "./includes/signup_view.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,7 @@
     <div class="container">
 
         <h2>Sign Up</h2>
-        <form action="./includes/register.inc.php" method="POST">
+        <form action="./includes/signup.inc.php" method="POST">
     
             <label for="faculty_id">Faculty ID:</label>
             <input type="text" id="faculty_id" name="faculty_id" required readonly>
@@ -40,12 +45,13 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
     
-            <input type="submit" value="Submit">
+            <?php
+            checkSignupErrors();// last left 
+            ?>
+
+            <button type="submit">Sign up</button>
         </form>
 
-        <?php
-        check_signup_errors();// last left 
-        ?>
 
     </div>
     
