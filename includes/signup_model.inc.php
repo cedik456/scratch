@@ -37,14 +37,19 @@ function setUser(object $pdo, string $faculty_id, string $fname, string $midname
     $stmt->bindParam(":dob", $dob);
     $stmt->bindParam(":age", $age);
     $stmt->execute();
+
+    $user_id = $pdo->lastInsertId();
+
+    return $user_id;
 }
 
-function setUserLogin(object $pdo, string $username, string $email, string $password) {
+function setUserLogin(object $pdo, $user_id, string $username, string $email, string $password) {
 
-    $query = "INSERT INTO UserLogins (username, email, password) VALUES
-    (:username, :email, :password);";
+    $query = "INSERT INTO UserLogins (user_id, username, email, password) VALUES
+    (:user_id, :username, :email, :password);";
     $stmt = $pdo->prepare($query);
 
+    $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);

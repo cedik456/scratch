@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         }
 
-        createUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);    
-        createUserLogin($pdo, $username, $email, $password);
+        $user_id = createUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);    
+        createUserLogin($pdo, $user_id, $username, $email, $password);
             
 
     } catch (PDOException $e) {

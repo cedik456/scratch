@@ -38,10 +38,10 @@ function isEmailRegistered(object $pdo, string $email) {
 
 function createUser(object $pdo, string $faculty_id, string $fname, string $midname, string $lname,string $dob,int $age) {
 
-    setUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);
+    return setUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);
 }
 
-function createUserLogin(object $pdo, string $username, string $email, string $password) {
+function createUserLogin(object $pdo, $user_id, string $username, string $email, string $password) {
 
-    setUserLogin($pdo, $username, $email, $password);
+    setUserLogin($pdo, $user_id, $username, $email, $password);
 }
