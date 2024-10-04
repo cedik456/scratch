@@ -1,6 +1,6 @@
 <?php
 require_once "./includes/config_session.inc.php";
-require_once "./includes/signup_view.inc.php";
+require_once "./includes/view/signup_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,39 +18,16 @@ require_once "./includes/signup_view.inc.php";
         <h2>Sign Up</h2>
         <form action="./includes/signup.inc.php" method="POST">
     
-            <label for="faculty_id">Faculty ID:</label>
-            <input type="text" id="faculty_id" name="faculty_id" required readonly>
-    
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
-    
-            <label for="midname">Middle Name:</label>
-            <input type="text" id="midname" name="midname" required>
-    
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname" required>
-    
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
-    
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required readonly>
-    
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-    
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-    
             <?php
-            checkSignupErrors();// last left 
+            signupInputs();
             ?>
+    
 
             <button type="submit">Sign up</button>
         </form>
+            <?php
+            checkSignupErrors();
+            ?>
 
 
     </div>

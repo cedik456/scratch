@@ -1,3 +1,9 @@
+<?php
+require_once "./includes/config_session.inc.php";
+require_once "./includes/view/signup_view.inc.php";
+require_once "./includes/view/login_view.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +12,17 @@
     <title>Log in</title>
 </head>
 <body>
+
+    <form action="./includes/login.inc.php" method="POST">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Submit</button>
+    </form>
     
-    
+    <?php
+    checkLoginErrors();
+    ?>
+
 </body>
 </html>
+

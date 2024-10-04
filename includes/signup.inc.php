@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         
         require_once "db.inc.php";
-        require_once "signup_model.inc.php";
-        require_once "signup_contr.inc.php";
+        require_once "./model/signup_model.inc.php";
+        require_once "./controller/signup_contr.inc.php";
 
         //ERROR HANDLERS
-        $errors = [];
+        $errors = [];  
 
         if (isInputEmpty($faculty_id, $fname, $lname, $dob, $age, $username, $email, $password)) {
 
@@ -44,14 +44,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;
+
+            $signupData = [
+                "fname" => $fname,
+                "midname" => $midname,
+                "lname" => $lname,
+                "dob" => $dob,
+                "age" => $age,
+                "email" => $email,
+                "username" => $username
+            ];
+
+            $_SESSION['signup_data'] = $signupData;
+
             header("Location: ../signup.php");
             die();
         }
 
         $user_id = createUser($pdo, $faculty_id, $fname, $midname, $lname, $dob, $age);    
         createUserLogin($pdo, $user_id, $username, $email, $password);
-            
 
+        unset($_SESSION['signup_data']);
+        unset($_SESSION['errors_signup']);
+
+        header("Location: ../index.php?signup=success");  
+        
+        $pdo = null;
+        $stmt = null;
+        
+        die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }

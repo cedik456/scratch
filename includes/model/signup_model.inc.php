@@ -49,9 +49,14 @@ function setUserLogin(object $pdo, $user_id, string $username, string $email, st
     (:user_id, :username, :email, :password);";
     $stmt = $pdo->prepare($query);
 
+    $option = [
+        'cost' => 12
+    ];
+    $hashedPwd = password_hash($password, PASSWORD_BCRYPT, $option);
+
     $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":password", $password);
+    $stmt->bindParam(":password", $hashedPwd);
     $stmt->execute();
 }

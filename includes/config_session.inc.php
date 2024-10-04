@@ -15,17 +15,45 @@ session_set_cookie_params([
 
 session_start();
 
-// Regenerate session ID on login
-if (isset($_SESSION["last_regeneration"])) {
-    regenerate_session_id();
-} else {
-    $interval = 60 * 30;
-    if (time() - $_SESSION["last_regeneration"] >= $interval) {
-        regenerate_session_id();
+if(isset($_SESSION["current_user_id"])) {
+
+    if (isset($_SESSION["last_regeneration"])) {
+        regenerateSessionIdloggedIn();
+    } else {
+        $interval = 60 * 30;
+        if (time() - $_SESSION["last_regeneration"] >= $interval) {
+            regenerateSessionIdloggedIn();
+        }
     }
+    
+} else {
+    
+    if (isset($_SESSION["last_regeneration"])) {
+        regenerateSessionId();
+    } else {
+        $interval = 60 * 30;
+        if (time() - $_SESSION["last_regeneration"] >= $interval) {
+            regenerateSessionId();
+        }
+    }
+    
 }
 
-function regenerate_session_id() {
-    session_regenerate_id();
+function regenerateSessionIdloggedIn() {
+
+    session_regenerate_id(true);
+
+    $currentUserId = $_SESSION["current_user_id"];
+    $newSessionId = session_create_id();
+    $sessionId = $newSessionId . "_" . $currentUserId;
+    session_id($sessionId);
+
     $_SESSION["last_regeneration"] = time();
 };
+
+function regenerateSessionId() {
+
+    session_regenerate_id(true);
+    $_SESSION["last_regeneration"] = time();
+};
+
