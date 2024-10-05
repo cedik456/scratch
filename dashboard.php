@@ -21,8 +21,9 @@ require_once "./includes/view/login_view.inc.php";
         <nav>
             <ul>
                 <li><a href="dashboard.php">Home</a></li>
-                <li><a href="students_form.php">Add Students</a></li>
+                <li><a href="students_dashboard.php">Students</a></li>
                 <li><a href="#">Add Subjects</a></li>
+                <li><a href="update_user.php">Edit profile</a></li>
             </ul>
         </nav>
     </header>

@@ -18,6 +18,8 @@ require_once "./includes/view/login_view.inc.php";
         <input type="password" name="password" placeholder="Password">
         <button type="submit">Submit</button>
     </form>
+
+    <a href="signup.php"><button>No account? Signup</button></a>
     
     <?php
     checkLoginErrors();

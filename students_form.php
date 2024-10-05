@@ -1,6 +1,6 @@
 <?php
 require_once "./includes/config_session.inc.php";
-// require_once "./includes/view/login_view.inc.php";
+require_once "./includes/view/student_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,33 +26,36 @@ require_once "./includes/config_session.inc.php";
         </nav>
     </header>
     <div class="container">
-        <h1>Student Registration Form</h1>
+        <h1>Add Students</h1>
         <form action="./includes/students.inc.php" method="POST" enctype="multipart/form-data">
             <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required>
+            <input type="text" id="first_name" name="first_name" >
     
             <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" required>
+            <input type="text" id="last_name" name="last_name" >
     
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" >
     
-            <!-- <label for="profile_picture">Profile Picture:</label>
-            <input type="file" id="profile_picture" name="profile_picture" accept="image/*" required> -->
-    
-            <label for="program_id">Program ID:</label>
-            <input type="number" id="program_id" name="program_id" required>
-    
+            <label for="program_id">Course:</label>
+            <select name="program_id">
+            <option value="" selected disabled></option>
+            <option value="1">BSIT</option>
+            <option value="2">BSCS</option>
+            <!-- Ensure values are integers -->
+            </select>
+
             <label for="year_level">Year Level:</label>
-            <select id="year_level" name="year_level" required>
-                <option value="">Select Year Level</option>
+            <select id="year_level" name="year_level" >
+                <option value="" selected disabled></option>
                 <option value="1st Year">1st Year</option>
                 <option value="2nd Year">2nd Year</option>
                 <option value="3rd Year">3rd Year</option>
                 <option value="4th Year">4th Year</option>
             </select>
-    
+            <?php checkSignupErrors() ?>
             <button type="submit">Add</button>
+            
         </form>
         
     </div>
