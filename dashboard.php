@@ -9,7 +9,7 @@ require_once "./includes/view/login_view.inc.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
 </head>
@@ -22,7 +22,7 @@ require_once "./includes/view/login_view.inc.php";
             <ul>
                 <li><a href="dashboard.php">Home</a></li>
                 <li><a href="students_dashboard.php">Students</a></li>
-                <li><a href="#">Add Subjects</a></li>
+                <li><a href="subjects.php">Subjects</a></li>
                 <li><a href="update_user.php">Edit profile</a></li>
             </ul>
         </nav>

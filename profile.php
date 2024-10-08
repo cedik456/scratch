@@ -1,0 +1,143 @@
+<?php
+require_once "./includes/config_session.inc.php";
+// require_once "./includes/update_user.inc.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="./css/style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="./css/reset.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li>
+                <a href="main_dashboard.php">
+                <i class="uil uil-home"></i>
+                <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="subs_dashboard.php">
+                <i class="uil uil-subject"></i>
+                <span>Subjects</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                <i class="uil uil-chart-bar-alt"></i>
+                <span>Statistics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                <i class="uil uil-suitcase"></i>
+                <span>Careers</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                <i class="uil uil-user"></i>
+                <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                <i class="uil uil-setting"></i>
+                <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="index.php">
+                <i class="uil uil-signout"></i>
+                <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <!-- <span>Primary</span> -->
+                <h2>Profile</h2>
+            </div>
+
+            <div class="user-info">
+                <div class="search-box">
+                    <i class="uil uil-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+
+                <img src="./assets/ced.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="tabular-wrapper">
+            <div class="update-profile-container"> 
+                <div class="profile-details">
+                    <h3 class="main-title">Update Profile</h3>
+                        
+                        <?php
+                        
+                        // Display any error messages
+                        if (isset($_SESSION["errors_update"])) {
+                            foreach ($_SESSION["errors_update"] as $error) {
+                                echo "<p class='error'>$error</p>";
+                            }
+                            unset($_SESSION["errors_update"]); // Clear errors after displaying
+                        }
+                
+                        // Retrieve previous input data from session
+                        $updateData = $_SESSION['update_data'] ?? [];
+                        ?>
+                
+                        <form action="./includes/update_user.inc.php" method="POST">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($userData['fname']); ?>" required autocomplete="off">
+                
+                            <label for="midname">Middle Name</label>
+                            <input type="text" id="midname" name="midname" value="<?php echo htmlspecialchars($userData['midname']); ?>" autocomplete="off">
+                
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($userData['lname']); ?>" required autocomplete="off">
+                
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($loginData['email']); ?>" required autocomplete="off">
+                
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($loginData['username']); ?>" required autocomplete="off">
+                
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($userData['dob']); ?>" required autocomplete="off">
+                
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($userData['age']); ?>" required autocomplete="off">
+                
+                            <label for="new_password">New Password</label>
+                            <input type="password" id="new_password" name="new_password">
+                
+                            <button>Update Profile</button>
+                        </form>
+                </div>
+
+                <div class="profile-pic">
+                    Picture here
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script src="./js/calculate_age.js"></script>
+    <script src="./js/generate_faculty_id.js"></script>
+</body>
+</html>

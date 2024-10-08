@@ -40,22 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
-        require_once "config_session.inc.php"; // session start by using the config file
+        require_once "config_session.inc.php"; 
 
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;
 
-            $signupData = [
-                "fname" => $fname,
-                "midname" => $midname,
-                "lname" => $lname,
-                "dob" => $dob,
-                "age" => $age,
-                "email" => $email,
-                "username" => $username
-            ];
-
-            $_SESSION['signup_data'] = $signupData;
 
             header("Location: ../signup.php");
             die();

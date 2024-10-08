@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
 
         require_once "db.inc.php";
-        require_once "./model/student_model.inc.php"; // should be students model
-        require_once "./controller/student_controller.inc.php"; // students controller 
+        require_once "./model/student_model.inc.php"; 
+        require_once "./controller/student_controller.inc.php"; 
     
-        require_once "config_session.inc.php"; // session start by using the config file
+        require_once "config_session.inc.php"; 
 
         $user_id = $_SESSION['current_user_id'];
         // ERROR HANDLERS
@@ -26,25 +26,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
 
-
         if ($errors) {
             $_SESSION["errors_student"] = $errors;
 
             header("Location: ../students_form.php");
             die();
         }
-    
-        // Here you would typically insert the student data into the database
-        // Example using PDO (assuming you have a PDO connection established)
 
-        
 
         addStudent($pdo, $user_id, $first_name, $last_name, $email, $program_id, $year_level); 
         
-        header("Location: ../students_dashboard.php");
+        header("Location: ../main_dashboard.php");
 
-        // $pdo = null;
-        // $stmt = null;
+        $pdo = null;
+        $stmt = null;
         
         die();
     } catch (PDOException $e) {

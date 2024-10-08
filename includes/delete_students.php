@@ -34,6 +34,6 @@ if (isset($_GET['student_id'])) {
 }
 
 // Redirect to the students display page
-header("Location: ../students_dashboard.php");
+header("Location: ../main_dashboard.php");
 die();
 ?>
