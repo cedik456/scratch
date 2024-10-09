@@ -97,7 +97,7 @@ try {
                     <input type="search" placeholder="Search">
                 </div>
 
-                <img src="./assets/ced.jpg" alt="">
+                <a href="profile.php"><img src="./assets/image.webp" alt=""></a>
             </div>
         </div>
 
@@ -140,8 +140,8 @@ try {
                             <td><?php echo htmlspecialchars($subject['prerequisite']); ?></td>
                             <td><?php echo htmlspecialchars($subject['program_name']); ?></td>
                             <td>
-                                <button class="edit-button">Edit</button>
-                                <form action="./includes/delete_subjects.php" method="get" style="display:inline;">
+                                <!-- <button class="edit-button">Edit</button> -->
+                                <form action="./includes/delete_subs.php" method="get" style="display:inline;">
                                     <input type="hidden" name="subject_id" value="<?php echo htmlspecialchars($subject['subject_id']); ?>">
                                     <button type="submit" onclick="return confirm('Are you sure you want to delete this subject?');" class="delete-button">Delete</button>
                                 </form>
@@ -184,16 +184,12 @@ try {
                 <input type="text" id="prerequisite" name="prerequisite">
                 
                 <div class="select-container-subs">
-                    <label for="program_id">Program:</label>
-                    <select id="program_id" name="program_id" required>
-                        <?php
-                        // Fetch programs for the dropdown
-                        $programs = $pdo->query("SELECT * FROM Programs")->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($programs as $program) {
-                            echo "<option value='" . htmlspecialchars($program['program_id']) . "'>" . htmlspecialchars($program['program_name']) . "</option>";
-                        }
-                        ?>
-                    </select>
+                <label for="program_name">Select Program:</label>
+                <select name="program_name" id="program_name">
+                    <option value="BSIT">BSIT</option>
+                    <option value="BSCS">BSCS</option>
+                    <!-- Add more programs as needed -->
+                </select>
                 </div>
 
                 <button type="submit">Add Subject</button>

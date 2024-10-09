@@ -1,14 +1,36 @@
 <?php
-require_once "./includes/config_session.inc.php";
-// require_once "./includes/update_user.inc.php";
+   require_once "./includes/config_session.inc.php";
+   require_once "./includes/db.inc.php"; // Database connection
+    
+   // Assuming the user_id is stored in session
+   $user_id = $_SESSION['current_user_id'];
+
+   $query = "SELECT Users.fname, Users.midname, Users.lname, UserLogins.email, Users.profile_pic   
+              FROM Users
+              INNER JOIN UserLogins ON Users.user_id = UserLogins.user_id
+              WHERE Users.user_id = :user_id";
+
+   // Prepare and execute the query
+   $stmt = $pdo->prepare($query);
+   $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+   $stmt->execute();
+
+   // Fetch and display the result for the current user
+   $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+   // Check if data exist
+   $full_name = $user_data['fname'] . ' ' . $user_data['midname'] . ' ' . $user_data['lname'] ?? 'No Name Found';
+   $email = $user_data['email'] ?? 'No Email Found';
+   $profile_pic = $user_data['profile_pic'] ?? './assets/image.webp'; // Default image if not set
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="./css/style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="./css/reset.css"> <!-- Link to your CSS file -->
@@ -75,7 +97,7 @@ require_once "./includes/config_session.inc.php";
                     <input type="search" placeholder="Search">
                 </div>
 
-                <img src="./assets/ced.jpg" alt="">
+                <a href="#"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
             </div>
         </div>
 
@@ -127,8 +149,24 @@ require_once "./includes/config_session.inc.php";
                         </form>
                 </div>
 
-                <div class="profile-pic">
-                    Picture here
+                <div class="profile-pic-container">
+                <a href="#"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
+                    <div class="profile-pic-details">
+                    <h2> <?= htmlspecialchars($full_name); ?></h2>
+                    <p> <?= htmlspecialchars($email); ?></p>
+                    </div>
+
+                    <div class="profile-pic-form">
+                        <form action="./includes/upload.inc.php" method="POST" enctype="multipart/form-data">
+
+                        <input type="file" name="my_image">
+
+                        <input type="submit" name="submit" value="upload">
+                        <?php if (isset($_GET['error'])): ?>
+                        <p><?php echo $_GET['error']; ?></p>
+                        <?php endif ?>
+                        </form>
+                    </div>
                 </div>
 
             </div>

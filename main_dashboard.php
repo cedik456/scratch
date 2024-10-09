@@ -4,6 +4,8 @@
 require_once "./includes/db.inc.php"; // Database connection
 require_once "./includes/config_session.inc.php"; // Session configuration
 
+
+
 // Check if the user is logged in
 if (!isset($_SESSION['current_user_id'])) {
     header("Location: ../signup.php");
@@ -101,7 +103,7 @@ try {
                     <input type="search" placeholder="Search">
                 </div>
 
-                <img src="./assets/ced.jpg" alt="">
+                <a href="profile.php"><img src="./assets/image.webp" alt=""></a>
             </div>
         </div>
 
@@ -147,7 +149,11 @@ try {
                                 <input type="hidden" name="student_id" value="<?php echo htmlspecialchars($student['student_id']); ?>">
                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this student?');" class="delete-button">Delete</button>
                             </form></td>
-                            <td><button class="subjects-button" data-program-id="1">Preview</button></td>
+                            <td>
+                            <a href="program_dashboard.php?program_id=<?php echo htmlspecialchars($student['program_id']); ?>">
+                                <button class="subjects-button">View</button>
+                            </a>
+                        </td>
                             <?php endforeach; ?>
                             <?php else: ?>
                             <tr>

@@ -432,3 +432,62 @@ tfoot td {
   border: none;
   outline: none;
 }
+
+.profile-pic-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+}
+
+.profile-pic-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.profile-pic-details {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.profile-pic-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-pic-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-pic-form input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.profile-pic-form input[type="submit"] {
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.profile-pic-form p {
+  color: red;
+  font-size: 0.9rem;
+}

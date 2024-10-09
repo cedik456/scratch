@@ -32,7 +32,10 @@ require_once "./includes/view/login_view.inc.php";
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
-                    <!-- <button type="submit">Submit</button> -->
+
+                    <div class="error-container">
+                        <?php checkLoginErrors(); ?>
+                    </div>
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
@@ -44,10 +47,9 @@ require_once "./includes/view/login_view.inc.php";
                     </div>
 
                     <div class="input-field button">
-                        
                          <button type="submit" class="button">Submit</button>
-
                     </div>
+
                 </form>
 
                 <div class="login-signup">
@@ -57,11 +59,6 @@ require_once "./includes/view/login_view.inc.php";
             </div>
         </div>
     </div>
-
-    <?php
-    checkLoginErrors();
-    ?>
-
 </body>
 </html>
 

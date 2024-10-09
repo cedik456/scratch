@@ -162,3 +162,14 @@ body {
   display: grid;
   grid-template-columns: 2;
 }
+
+form .form-error {
+  color: red; /* Or green for success */
+  width: 100%; /* Full width to keep the text centered */
+  font-size: 0.8rem;
+}
+
+.error-container {
+  height: 30px;
+  margin-bottom: 0.2rem; /* Original margin */
+}

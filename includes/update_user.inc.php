@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Redirect back to profile/dashboard or success page
-        header("Location: ../main_dashboard.php?update=success");
+        header("Location: ../index.php?update=success");
         exit();
 
     } catch (PDOException $e) {
