@@ -3,6 +3,8 @@
 // Start the session and include necessary files
 require_once "./includes/db.inc.php"; // Database connection
 require_once "./includes/config_session.inc.php"; // Session configuration
+require_once "./includes/profile.inc.php" ;
+
 
 // Check if the user is logged in
 if (!isset($_SESSION['current_user_id'])) {
@@ -97,7 +99,7 @@ try {
                     <input type="search" placeholder="Search">
                 </div>
 
-                <a href="profile.php"><img src="./assets/image.webp" alt=""></a>
+                <a href="#"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
             </div>
         </div>
 
