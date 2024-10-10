@@ -2,10 +2,11 @@
 
 ## Project Overview
 
-The School Dashboard is a web-based application designed to manage student information efficiently. It features a sidebar for easy navigation and includes sections for user profiles, student data display, and subject display based on the student's program ID. This project uses a minimalistic PHP MVC approach without classes, focusing on simplicity and ease of use, along with HTML, CSS, and JavaScript for the front-end.
+The School Dashboard is a web-based application designed to manage student information efficiently. It features a sidebar for easy navigation and includes sections for user profiles, student data display, and subject display based on the student's program ID. Additionally, it includes user authentication features like login and registration to control access. This project uses a minimalistic PHP MVC approach without classes, focusing on simplicity and ease of use, along with HTML, CSS, and JavaScript for the front-end.
 
 ## Features
 
+- **Login & Registration:** User authentication to access the dashboard.
 - **Sidebar Navigation:** Easily switch between user profile, student display, and subject display sections.
 - **User Profile:** View and manage user information.
 - **Student Display:** Display students' data based on their enrolled programs.
@@ -16,7 +17,7 @@ The School Dashboard is a web-based application designed to manage student infor
 ## Technologies Used
 
 - **Front-end:**
-  - HTML, CSS (for the website structure and design)
+  - HTML, CSS
   - JavaScript (for dynamic functionalities)
 
 - **Back-end:**
@@ -24,7 +25,7 @@ The School Dashboard is a web-based application designed to manage student infor
   - PDO (for secure database interactions)
 
 - **Database:**
-  - MySQL (to manage user, user logins, student, program, and subject data)
+  - MySQL (to manage user authentication, student, program, and subject data)
 
 ## Installation
 
