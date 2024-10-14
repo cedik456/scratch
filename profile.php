@@ -68,8 +68,10 @@
         <div class="header-wrapper">
             <div class="header-title">
                 <!-- <span>Primary</span> -->
-                <h2>Profile</h2>
+                <h2>Profile</h2>    
             </div>
+
+            
 
             <div class="user-info">
                 <div class="search-box">
@@ -77,6 +79,10 @@
                     <input type="search" placeholder="Search">
                 </div>
 
+                <div>
+                
+                </div>
+                
                 <a href="#"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
             </div>
         </div>

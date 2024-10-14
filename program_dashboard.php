@@ -52,9 +52,9 @@ if (isset($_GET['program_id'])) {
                 </a>
             </li>
             <li>
-                <a href="program_dashboard.php">
+                <a href="#">
                 <i class="uil uil-chart-bar-alt"></i>
-                <span>Programs</span>
+                <span>Statistics</span>
                 </a>
             </li>
             <li>

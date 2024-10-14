@@ -302,6 +302,15 @@ tfoot td {
   margin-bottom: 1rem;
 }
 
+.edit-button {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
 .subjects-button {
   background-color: #2963bf;
 }
@@ -490,4 +499,8 @@ tfoot td {
 .profile-pic-form p {
   color: red;
   font-size: 0.9rem;
+}
+
+.faculty-id {
+  color: gray;
 }
