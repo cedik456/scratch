@@ -104,7 +104,7 @@ try {
                     <input type="search" placeholder="Search">
                 </div>
 
-                <a href="#"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
+                <a href="profile.php"><img src="<?= htmlspecialchars('./includes/uploads/' . $profile_pic); ?>" alt="Profile Picture" class="profile-pic"></a>
             </div>
         </div>
 
