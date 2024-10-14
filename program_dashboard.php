@@ -103,7 +103,7 @@ if (isset($_GET['program_id'])) {
 
         <div class="tabular-wrapper">
               <div class="subject-header">
-                <h3 class="main-title">BSIT</h3>
+                <!-- <h3 class="main-title">BSIT</h3> -->
             </div>
             <?php if (isset($_SESSION["errors_student"])): ?>
             <div class="error">
