@@ -145,7 +145,7 @@ try {
                             <td><?php echo htmlspecialchars($student['year_level']); ?></td>
                            
                             <td>
-                            <button id="editStudentButton" class="edit-button">Edit Student</button>    
+                            <!-- <button id="editStudentButton" class="edit-button">Edit Student</button>     -->
                             <form action="./includes/delete_students.php" method="get" style="display:inline;">
                                 <input type="hidden" name="student_id" value="<?php echo htmlspecialchars($student['student_id']); ?>">
                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this student?');" class="delete-button">Delete</button>
