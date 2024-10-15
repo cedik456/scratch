@@ -76,7 +76,7 @@ if (isset($_GET['program_id'])) {
                 </a>
             </li>
             <li class="logout">
-                <a href="index.php">
+                <a href="./includes/logout.inc.php">
                 <i class="uil uil-signout"></i>
                 <span>Logout</span>
                 </a>
@@ -102,7 +102,7 @@ if (isset($_GET['program_id'])) {
         </div>
 
         <div class="tabular-wrapper">
-              <div class="subject-header">
+              <div class="subject-header">  
                 <!-- <h3 class="main-title">BSIT</h3> -->
             </div>
             <?php if (isset($_SESSION["errors_student"])): ?>

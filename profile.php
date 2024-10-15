@@ -2,6 +2,7 @@
    require_once "./includes/config_session.inc.php";
    require_once "./includes/db.inc.php"; // Database connection
    require_once "./includes/profile.inc.php" ;
+   require_once "./includes/fetch_users.php" ;
 ?>
 
 
@@ -56,7 +57,7 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="index.php">
+                <a href="./includes/logout.inc.php">
                 <i class="uil uil-signout"></i>
                 <span>Logout</span>
                 </a>
@@ -117,16 +118,16 @@
                             <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($userData['lname']); ?>" required autocomplete="off">
                 
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($loginData['email']); ?>" required autocomplete="off">
+                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($userData['email']); ?>" required autocomplete="off">
                 
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($loginData['username']); ?>" required autocomplete="off">
+                            <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($userData['username']); ?>" required autocomplete="off">
                 
                             <label for="dob">Date of Birth</label>
                             <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($userData['dob']); ?>" required autocomplete="off">
                 
                             <label for="age">Age</label>
-                            <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($userData['age']); ?>" required autocomplete="off">
+                            <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($userData['age']); ?>" required autocomplete="off" readonly>
                 
                             <label for="new_password">New Password</label>
                             <input type="password" id="new_password" name="new_password">

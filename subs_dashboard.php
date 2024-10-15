@@ -79,7 +79,7 @@ try {
                 </a>
             </li>
             <li class="logout">
-                <a href="index.php">
+                <a href="./includes/logout.inc.php">
                 <i class="uil uil-signout"></i>
                 <span>Logout</span>
                 </a>

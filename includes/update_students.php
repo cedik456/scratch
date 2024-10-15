@@ -1,5 +1,6 @@
 <?php
-require_once "./includes/db.inc.php";
+require_once "db.inc.php";
+require_once "config_session.inc.php";
 
 // Check if the PDO connection is established
 if (!isset($pdo)) {
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         // Redirect back to dashboard with success message
-        header("Location: ./main_dashboard.php?success=Profile updated successfully");
+        header("Location:  ../main_dashboard.php?success=Profile updated successfully");
         die();
     } catch (PDOException $e) {
         // If there's an error, output the message

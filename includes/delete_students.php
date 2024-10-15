@@ -15,7 +15,7 @@ if (isset($_GET['student_id'])) {
 
     try {
         // Prepare the DELETE SQL statement
-        $stmt = $pdo->prepare("DELETE FROM students WHERE student_id = :student_id AND user_id = :user_id");
+        $stmt = $pdo->prepare("DELETE FROM Students WHERE student_id = :student_id AND user_id = :user_id");
         $stmt->bindParam(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->bindParam(':user_id', $_SESSION['current_user_id'], PDO::PARAM_INT);
         

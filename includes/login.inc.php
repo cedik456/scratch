@@ -26,13 +26,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Check orders!
         if (!isUsernameWrong($result) && isPasswordWrong($password, $result["password"])) {
-            $errors["password_incorrect"] = "Invalid username and password!";
+            $errors["pass_incorrect"] = "Invalid username and password!";
         }
 
         require_once 'config_session.inc.php'; // session start by using the config file
 
         if ($errors) {
-            $_SESSION["errors_login"] = $errors;
+            $_SESSION["error_login"] = $errors;
 
             header("Location: ../index.php");
             die();

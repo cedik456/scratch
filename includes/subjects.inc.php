@@ -54,6 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         addSubject($pdo, $name, $course_code, $sub_detail, $laboratory, $units, $prerequisite, $program_id);
 
         header("Location: ../subs_dashboard.php");
+
+        $pdo = null;
+        $stmt = null;
+        
         die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());

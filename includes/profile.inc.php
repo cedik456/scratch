@@ -3,6 +3,12 @@
    require_once "./includes/db.inc.php"; // Database connection
     
    // Assuming the user_id is stored in session
+   
+   if (!isset($_SESSION["current_user_id"])) {
+      header("Location: ../login.php"); // Redirect if user is not logged in
+      exit();
+   }
+   
    $user_id = $_SESSION['current_user_id'];
 
    $query = "SELECT Users.fname, Users.midname, Users.lname, UserLogins.email, Users.profile_pic, Users.faculty_id   

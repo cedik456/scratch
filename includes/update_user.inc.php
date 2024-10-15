@@ -30,17 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Include DB connection file
         require_once 'db.inc.php';
 
-        $userSQL = "SELECT fname, midname, lname, dob, age FROM Users WHERE user_id = ?";
-        $stmtUser = $pdo->prepare($userSQL);
-        $stmtUser->execute([$user_id]);
-        $userData = $stmtUser->fetch(PDO::FETCH_ASSOC);
-
-        // Fetch user login data from the `Userlogins` table
-        $loginSQL = "SELECT email, username FROM UserLogins WHERE user_id = ?";
-        $stmtLogin = $pdo->prepare($loginSQL);
-        $stmtLogin->execute([$user_id]);
-        $loginData = $stmtLogin->fetch(PDO::FETCH_ASSOC);
-
         // Update `Users` table
         $updateUsersSQL = "UPDATE Users SET 
             fname = ?, 
